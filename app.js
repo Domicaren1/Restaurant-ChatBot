@@ -18,11 +18,7 @@ io.on('connection', (socket) => {
 socket.on('disconnect', () => {
         console.log('user disconnected');
 });
-});
-
-server.listen(3000, () => {
- console.log('listening on *:3000');
-});*/
+}); */
 
 const availableMeals= {
     1: "Oha soup and pounded yam",
@@ -138,7 +134,7 @@ io.on("connection", (socket) => {
             } else {
                 const currentOrderString = state.currentOrder.join(", ");
                 await botMessage(
-                `Here is your current order:\n${currentOrderString}`
+                `Here is your order:\n${currentOrderString}`
                 );
             }
             break;
@@ -151,12 +147,12 @@ io.on("connection", (socket) => {
             }
             break;
             default:
-            await botMessage("Invalid input");
+            await botMessage("Not available");
         }
         }
     } catch (err) {
         console.log(err);
-        await botMessage("An error occurred while processing your request.");
+        await botMessage("An error occurred while processing your order.");
     }
     };
 
